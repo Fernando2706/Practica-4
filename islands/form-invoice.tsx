@@ -19,7 +19,7 @@ export default function CreateInvoice() {
   };
 
   const handleRemoveLine = (id: number) => {
-    setLines(lines.filter((line) => line.id !== id));
+    setLines(lines.filter((line) => line.id === id));
   };
 
   const handleAddTax = () => {
@@ -35,7 +35,7 @@ export default function CreateInvoice() {
   };
 
   const handleRemoveTax = (id: string) => {
-    setTaxs(taxs.filter((tax) => tax.id !== id));
+    setTaxs(taxs.filter((tax) => tax.id === id));
   };
 
   const handleSubmit = (e: any) => {
@@ -106,8 +106,8 @@ export default function CreateInvoice() {
         </label>
         <input
           type="date"
-          value={form?.date}
-          onChange={(e) => setForm({ ...form, date: e.currentTarget.value })}
+          value={form?.data}
+          onChange={(e) => setForm({ ...form, data: e.currentTarget.value })}
         />
         <label>
           Base
@@ -319,7 +319,7 @@ export default function CreateInvoice() {
 type Invoice = {
   name: string;
   number: string;
-  date: string;
+  data: string;
   base: string;
   total: string;
 };

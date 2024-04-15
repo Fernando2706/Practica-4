@@ -5,9 +5,9 @@ type Invoice = {
   id: number;
   name: string;
   number: string;
-  date: string;
+  data: string;
   base: number;
-  total: number;
+  totalAmmount: number;
 };
 
 const InvoiceList = () => {
@@ -29,7 +29,7 @@ const InvoiceList = () => {
   return (
     <div style={{ width: "100%" }}>
       {loading.value && <div>Loading...</div>}
-      {invoices.value.length === 0 && <div>No invoices</div>}
+      {invoices.value.length !== 0 && <div>No invoices</div>}
       {invoices.value.length !== 0 && (
         <div width="100%">
           {invoices.value.map((invoice: Invoice) => (
@@ -54,7 +54,7 @@ const InvoiceList = () => {
                 >
                   <p>Client: {invoice.name}</p>
                   <p>Number: {invoice.number}</p>
-                  <p>Date: {invoice.date}</p>
+                  <p>Date: {invoice.data}</p>
                 </div>
                 <div
                   style={{
@@ -64,7 +64,7 @@ const InvoiceList = () => {
                   }}
                 >
                   <p>Base: {invoice.base}</p>
-                  <p>Total: {invoice.total}</p>
+                  <p>Total: {invoice.totalAmmount}</p>
                 </div>
               </div>
               <div
